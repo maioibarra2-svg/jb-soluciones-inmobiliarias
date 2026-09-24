@@ -1,0 +1,109 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — Terrenos premium (morado + negro)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Negro profundo y morados */
+  --background: oklch(0.12 0.02 285);
+  --foreground: oklch(0.98 0.005 285);
+
+  --card: oklch(0.16 0.025 285);
+  --card-foreground: oklch(0.98 0.005 285);
+
+  --popover: oklch(0.16 0.025 285);
+  --popover-foreground: oklch(0.98 0.005 285);
+
+  --primary: oklch(0.62 0.22 295);        /* Morado vibrante */
+  --primary-foreground: oklch(0.99 0.005 285);
+
+  --secondary: oklch(0.22 0.04 290);
+  --secondary-foreground: oklch(0.95 0.01 285);
+
+  --muted: oklch(0.20 0.03 285);
+  --muted-foreground: oklch(0.72 0.03 285);
+
+  --accent: oklch(0.55 0.24 300);         /* Morado-magenta de acento */
+  --accent-foreground: oklch(0.99 0.005 285);
+
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.99 0.005 285);
+
+  --border: oklch(0.28 0.03 290);
+  --input: oklch(0.24 0.03 290);
+  --ring: oklch(0.62 0.22 295);
+
+  --gold: oklch(0.82 0.14 85);            /* Dorado para detalles premium */
+  --gold-foreground: oklch(0.14 0.02 285);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Resplandor morado para héroes y secciones */
+@utility glow-purple {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 25%, transparent),
+    0 20px 60px -20px color-mix(in oklab, var(--primary) 45%, transparent);
+}
+
+@utility gradient-purple {
+  background-image: linear-gradient(
+    135deg,
+    oklch(0.62 0.22 295) 0%,
+    oklch(0.45 0.20 305) 50%,
+    oklch(0.14 0.03 285) 100%
+  );
+}
